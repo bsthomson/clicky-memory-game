@@ -1,20 +1,65 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react'
+import Navbar from './components/navbar'
+import Wrapper from './components/wrapper'
+import Image from './components/image'
+import images from './images.json'
 import './App.css';
 
+
 class App extends Component {
+  state = {
+    images,
+    count: 0
+  }
+
+  clickImage = () => {
+    let btnType = this.state.images.clicked
+    const newState = { ...this.state }
+
+    if (!btnType) {
+      btnType = true
+      this.handleIncrement()
+      console.log(images)
+    }
+
+    this.shuffleArray(newState.images)
+
+    this.setState({ newState })
+  }
+
+  shuffleArray = array => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      let temp = array[i]
+      array[i] = array[j]
+      array[j] = temp
+    }
+  }
+
+  handleIncrement = () => {
+    this.setState((state) => {
+      return { count: this.state.count + 1}
+    })
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <Navbar count={this.state.count}></Navbar>
+        <Wrapper>
+          {this.state.images.map(image => (
+            <Image
+              clickImage={this.clickImage}
+              id={image.id}
+              key={image.id}
+              name={image.name}
+              image={image.image}
+              clicked={image.clicked}
+            />
+          ))}
+        </Wrapper>
       </div>
-    );
+    )
   }
 }
 

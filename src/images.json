@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Pig",
+    "image": "https://naturescrusaders.files.wordpress.com/2010/01/raise-pot-belly-pig-200x200.jpg",
+    "clicked": false
+  },
+  {
+    "id": 2,
+    "name": "Koala",
+    "image": "http://travel.feedbox.info/wp-content/uploads/baby-animals-01.jpg",
+    "clicked": false
+  },
+  {
+    "id": 3,
+    "name": "Bear",
+    "image": "http://artof4elements.com/images/2013-10/bear-200x200.jpg",
+    "clicked": false
+  },
+  {
+    "id": 4,
+    "name": "Bat",
+    "image": "http://artof4elements.com/images/2013-10/bats-200x200.jpg",
+    "clicked": false
+  }
+]
