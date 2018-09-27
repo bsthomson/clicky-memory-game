@@ -5,7 +5,7 @@ import Counter from '../counter'
 const Navbar = props => (
   <nav className="header">
     Clicky Game
-    <Counter count={props.count}/>
+    <Counter count={props.count} highscore={props.highscore}/>
   </nav>
 )
 
