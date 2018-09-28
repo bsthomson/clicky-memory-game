@@ -22,5 +22,17 @@
     "name": "Bat",
     "image": "http://artof4elements.com/images/2013-10/bats-200x200.jpg",
     "clicked": false
+  },
+  {
+    "id": 5,
+    "name": "Butterfly",
+    "image": "http://artof4elements.com/images/2013-10/animal-totems-butterfly.jpg",
+    "clicked": false
+  },
+  {
+    "id": 6,
+    "name": "Cat",
+    "image": "http://artof4elements.com/images/2013-10/cat-symbolism-spirit-guide.jpg",
+    "clicked": false
   }
 ]

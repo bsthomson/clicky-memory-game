@@ -28,26 +28,22 @@ class App extends Component {
   }
 
   loseGame = () => {
-    this.setState((state) => {
-      this.state.images.forEach( image => {
-        image.clicked = false
-      })
-      return { 
+    console.log('lose')
+    this.setState({
         highscore: this.state.count,
         count: 0,
         images
-      }
     })
   }
 
   imageLooper = (imageCards, clickTarget) => {
-    console.log(clickTarget);
     let count = this.state.count;
     imageCards.forEach((image, idx) => {
       if (image.id === clickTarget && !image.clicked) {
         image.clicked = true
-        console.log(image.clicked)
         count++;
+      } else if (image.id === clickTarget && image.clicked) {
+        this.loseGame();
       }
     });
 
