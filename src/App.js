@@ -13,10 +13,6 @@ class App extends Component {
     highscore: 0
   }
 
-  componentDidUpdate(){
-    console.log(this.state);
-  }
-
   shuffleArray = array => {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1))
@@ -27,27 +23,25 @@ class App extends Component {
     return array;
   }
 
-  loseGame = () => {
-    console.log('lose')
-    this.setState({
-        highscore: this.state.count,
-        count: 0,
-        images
-    })
-  }
-
   imageLooper = (imageCards, clickTarget) => {
     let count = this.state.count;
-    imageCards.forEach((image, idx) => {
+    imageCards.forEach((image) => {
       if (image.id === clickTarget && !image.clicked) {
         image.clicked = true
         count++;
+        this.setState({count: count, images: this.shuffleArray(imageCards)});
       } else if (image.id === clickTarget && image.clicked) {
-        this.loseGame();
+        imageCards.forEach((image) => {
+          image.clicked = false
+        })
+        this.setState({
+            highscore: this.state.count > this.state.highscore ? this.state.count : this.state.highscore,
+            count: 0,
+            images: this.shuffleArray(imageCards)
+        })
+        console.log(this.state)
       }
     });
-
-    this.setState({count: count, images: this.shuffleArray(imageCards)});
   }
 
   clickImage = (event) => {

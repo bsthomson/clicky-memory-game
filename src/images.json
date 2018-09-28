@@ -34,5 +34,41 @@
     "name": "Cat",
     "image": "http://artof4elements.com/images/2013-10/cat-symbolism-spirit-guide.jpg",
     "clicked": false
+  },
+  {
+    "id": 7,
+    "name": "Dolphin",
+    "image": "http://artof4elements.com/images/2013-10/animal-totems-dolphin.jpg",
+    "clicked": false
+  },
+  {
+    "id": 8,
+    "name": "Eagle",
+    "image": "http://artof4elements.com/images/2013-10/animal-totem-eagle-symbols-and-signs-200x200.jpg",
+    "clicked": false
+  },
+  {
+    "id": 9,
+    "name": "Elephant",
+    "image": "http://artof4elements.com/images/2013-10/elephant-200x200.jpg",
+    "clicked": false
+  },
+  {
+    "id": 10,
+    "name": "Fox",
+    "image": "http://artof4elements.com/images/2013-10/animal-totem-fox-symbols-and-signs-200x200.jpg",
+    "clicked": false
+  },
+  {
+    "id": 11,
+    "name": "Horse",
+    "image": "http://artof4elements.com/images/2013-10/animal-spirit-horse-symbols-and-signs-200x200.jpg",
+    "clicked": false
+  },
+  {
+    "id": 12,
+    "name": "Owl",
+    "image": "http://artof4elements.com/images/2013-10/animal-spirit-owl-symbols-and-signs-200x200.jpg",
+    "clicked": false
   }
 ]
