@@ -27,12 +27,6 @@ class App extends Component {
     return array;
   }
 
-  // handleIncrement = () => {
-  //   this.setState((state) => {
-  //     return { count: this.state.count + 1 }
-  //   })
-  // }
-
   loseGame = () => {
     this.setState((state) => {
       this.state.images.forEach( image => {
@@ -53,9 +47,7 @@ class App extends Component {
       if (image.id === clickTarget && !image.clicked) {
         image.clicked = true
         console.log(image.clicked)
-        // this.handleIncrement()
         count++;
-        // imageCards[idx] = Object.assign({}, image);
       }
     });
 
