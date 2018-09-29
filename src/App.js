@@ -24,11 +24,6 @@ class App extends Component {
     return array;
   }
 
-  winRound = (thisState, imageCards, gameState) => {
-
-    console.log('win ' + thisState)
-  }
-
   imageLooper = (imageCards, clickTarget) => {
     let count = this.state.count;
     imageCards.forEach((image) => {
@@ -49,10 +44,10 @@ class App extends Component {
             images: this.shuffleArray(imageCards),
             gamestate: gameState
           })
-        } 
-      }  /* else if (image.id === clickTarget && image.clicked) {
+        }
+      }  else if (image.id === clickTarget && image.clicked) {
         imageCards.forEach((image) => {
-          image.clicked = false
+        image.clicked = false
         })
         this.setState({
             highscore: this.state.count > this.state.highscore ? this.state.count : this.state.highscore,
@@ -61,9 +56,8 @@ class App extends Component {
             images: this.shuffleArray(imageCards)
         })
         console.log(this.state)
-      } 
-    }); */
-   })
+      }    
+    })
   }
 
   clickImage = (event) => {
