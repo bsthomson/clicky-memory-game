@@ -24,18 +24,33 @@ class App extends Component {
     return array;
   }
 
+  winRound = (thisState, imageCards, gameState) => {
+
+    console.log('win ' + thisState)
+  }
+
   imageLooper = (imageCards, clickTarget) => {
     let count = this.state.count;
     imageCards.forEach((image) => {
       if (image.id === clickTarget && !image.clicked) {
-        let gameState = this.state.gamestate
+        let gameState = `Correct!`
         image.clicked = true
         count++;
+        this.setState({ count: count, gamestate: gameState, images: this.shuffleArray(imageCards) })
+      
         if (count === 12) {          
-          gameState = `You Win!`
+           gameState = `You Win!`
+           imageCards.forEach((image) => {
+            image.clicked = false
+          })
+          this.setState({
+            highscore: 12,
+            count: 0,
+            images: this.shuffleArray(imageCards),
+            gamestate: gameState
+          })
         } 
-        this.setState({count: count, gamestate: gameState, images: this.shuffleArray(imageCards)});
-      } /* else if (image.id === clickTarget && image.clicked) {
+      }  /* else if (image.id === clickTarget && image.clicked) {
         imageCards.forEach((image) => {
           image.clicked = false
         })
@@ -46,13 +61,15 @@ class App extends Component {
             images: this.shuffleArray(imageCards)
         })
         console.log(this.state)
-      } */
-    });
+      } 
+    }); */
+   })
   }
 
   clickImage = (event) => {
     let clickTarget = parseInt(event.target.getAttributeNode('data-id').value, 10)
     this.imageLooper(this.state.images, clickTarget)
+    console.log(this.state)
   }
 
   render() {
