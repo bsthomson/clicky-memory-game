@@ -26,12 +26,12 @@ class App extends Component {
 
   imageLooper = (imageCards, clickTarget) => {
     let count = this.state.count;
-    imageCards.forEach((image) => {
-      if (image.id === clickTarget && !image.clicked) {
+    for (let i=0; i < imageCards.length; i++) {
+      if (imageCards[i].id === clickTarget && !imageCards[i].clicked) {
         let gameState = `Correct!`
-        image.clicked = true
+        imageCards[i].clicked = true
         count++;
-        this.setState({ count: count, gamestate: gameState, images: this.shuffleArray(imageCards) })
+        this.setState({ count: count, gamestate: gameState, images: this.shuffleArray(imageCards) });
       
         if (count === 12) {          
            gameState = `You Win!`
@@ -45,7 +45,9 @@ class App extends Component {
             gamestate: gameState
           })
         }
-      }  else if (image.id === clickTarget && image.clicked) {
+        break;
+
+      }  else if (imageCards[i].id === clickTarget && imageCards[i].clicked) {
         imageCards.forEach((image) => {
         image.clicked = false
         })
@@ -55,9 +57,9 @@ class App extends Component {
             gamestate: `You lose!`,
             images: this.shuffleArray(imageCards)
         })
-        console.log(this.state)
-      }    
-    })
+        break;
+      }  
+    }
   }
 
   clickImage = (event) => {
