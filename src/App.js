@@ -10,7 +10,8 @@ class App extends Component {
   state = {
     images,
     count: 0,
-    highscore: 0
+    highscore: 0,
+    gamestate: `Don't click the same image twice!`
   }
 
   shuffleArray = array => {
@@ -27,20 +28,25 @@ class App extends Component {
     let count = this.state.count;
     imageCards.forEach((image) => {
       if (image.id === clickTarget && !image.clicked) {
+        let gameState = this.state.gamestate
         image.clicked = true
         count++;
-        this.setState({count: count, images: this.shuffleArray(imageCards)});
-      } else if (image.id === clickTarget && image.clicked) {
+        if (count === 12) {          
+          gameState = `You Win!`
+        } 
+        this.setState({count: count, gamestate: gameState, images: this.shuffleArray(imageCards)});
+      } /* else if (image.id === clickTarget && image.clicked) {
         imageCards.forEach((image) => {
           image.clicked = false
         })
         this.setState({
             highscore: this.state.count > this.state.highscore ? this.state.count : this.state.highscore,
             count: 0,
+            gamestate: `You lose!`,
             images: this.shuffleArray(imageCards)
         })
         console.log(this.state)
-      }
+      } */
     });
   }
 
@@ -52,7 +58,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar count={this.state.count} highscore={this.state.highscore}></Navbar>
+        <Navbar count={this.state.count} highscore={this.state.highscore} gamestate={this.state.gamestate}></Navbar>
         <Wrapper>
           {this.state.images.map(image => (
             <Image
